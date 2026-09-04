@@ -1,0 +1,15 @@
+meta {
+  name: Perfil
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/users/2
+  body: none
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
