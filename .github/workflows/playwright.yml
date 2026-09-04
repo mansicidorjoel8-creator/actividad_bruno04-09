@@ -1,0 +1,36 @@
+name: Playwright y Bruno Tests
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obtener código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Instalar dependencias del proyecto
+        run: npm ci
+
+      - name: Instalar navegadores de Playwright
+        run: npx playwright install --with-deps
+
+      - name: Ejecutar tests de Playwright
+        run: npx playwright test
+
+      - name: Instalar Bruno CLI
+        run: npm install -g @usebruno/cli
+
+      - name: Ejecutar colección de Bruno
+        run: bru run --env Desarrollo
