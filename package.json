@@ -1,0 +1,11 @@
+{
+  "name": "actividad-testing",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@usebruno/cli": "^1.20.0"
+  }
+}
