@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures';
+import { test, expect } from './fixtures';
 
 // Array de datos parametrizados para probar distintos casos
 const casos = [
@@ -17,6 +17,5 @@ test('login exitoso', async ({ loginPage, page }) => {
 for (const caso of casos) {
   test(`login falla con usuario=${caso.usuario}`, async ({ loginPage }) => {
     await loginPage.iniciarSesion(caso.usuario, caso.clave);
-    // Agrega la aserción correspondiente de error de tu interfaz
   });
 }
